@@ -59,7 +59,7 @@ function addRect(dragzone) {
             fill : Color
         }); 
     var sourcePoint= {
-        anchor:"Right", 
+        anchor:"Bottom", 
          connectorStyle: {
             lineWidth: 2,
             strokeStyle: '#666'
@@ -75,7 +75,7 @@ function addRect(dragzone) {
         };
          
         var targetPoint= {
-        anchor: "Left",
+        anchor: "Top",
         isSource:false,
         isTarget:true
     };  
@@ -132,7 +132,7 @@ function addTriangle(dragzone) {
             r : 45
         }); 
     var sourcePoint= {
-        anchor:"Right", 
+        anchor:"Bottom", 
          connectorStyle: {
             lineWidth: 2,
             strokeStyle: '#666'
@@ -148,7 +148,7 @@ function addTriangle(dragzone) {
         };
          
         var targetPoint= {
-        anchor: "Left",
+        anchor: "Top",
         isSource:false,
         isTarget:true
     };  
@@ -192,7 +192,7 @@ function addTriangle(dragzone) {
      hexagon.transform("r90");
     
     var sourcePoint= {
-        anchor:"Right", 
+        anchor:"Bottom", 
          connectorStyle: {
             lineWidth: 2,
             strokeStyle: '#666'
@@ -208,7 +208,7 @@ function addTriangle(dragzone) {
         };
          
         var targetPoint= {
-        anchor: "Left",
+        anchor: "Top",
         isSource:false,
         isTarget:true
     };  
