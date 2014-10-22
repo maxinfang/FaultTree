@@ -1,0 +1,50 @@
+ 
+<html lang="en">
+    <head>
+      <title>Max Decision tree and input images Demo</title> 
+      <link rel="stylesheet" type="text/css"              href="https://mapleta.telt.unsw.edu.au:8443/mapleta/modules/skin/css/jquery.ui.css">
+ 
+ 
+    <script src="https://mapleta.telt.unsw.edu.au:8443/mapleta/modules/scripts/jquery/jquery-1.4.1.min.js"></script>
+  <script src="https://mapleta.telt.unsw.edu.au:8443/mapleta/modules/scripts/jquery/jquery-ui.min.js">    
+    </script>  
+
+<p>The Acme Brickpit has won a tender to produce custom bricks for a 
+construction company. The construction company will be building one or two 
+buildings using these bricks. The contract between Acme and the company 
+stipulates that Acme is to supply 160,000 bricks for the first building this month 
+and, if <span id="question_brick_entry_1">both buildings are built</span>, 
+another 160,000 bricks in four months' time. It will be paid 7 per brick.
+</p>
+<p>It will cost Acme $350,000 to set up for a production run of the bricks, 
+regardless of how many bricks it makes at that time, plus $5 per brick. If it
+decides to <span id="question_brick_entry_2">make all  $320,000 bricks 
+</span> in a single run then it will also cost $30,000 to store the second 
+half of the bricks until they are needed for the second building (even if it does 
+not go ahead). If it decides to only <span id="question_brick_entry_3">make 160,000 bricks  in the first run </span> then there will be no storage cost (and 
+the second 160,000 bricks will not be made if the second building does not 
+go ahead) but the $350,000 set up cost will need to be paid again if the 
+second building does go ahead.</p>
+<p>However, the second building is not guaranteed to proceed. If <span 
+id="question_brick_entry_4"> one building only </span>is built then Acme 
+will have to sell the extra bricks on the open market, where it expects to only 
+get $1 per brick because of their unusual design.Acme believes that 
+the probability of the second building proceeding is 0.39.Monetary 
+values should be answered to the nearest dollar. Probabilities should be 
+answered to three decimal places. Do not include dollar signs or commas.
+</p>
+<p hidden=""><span id="question_brick_label">EMV</span></p>
+
+<div id="resizable"  ><iframe 
+src="student.html"   width="800" height="600" overflow="hidden"
+ id="question_brick" >You 
+will 
+need a browser that 
+supports iframes.
+</iframe>
+</div> 
+<input type=hidden name="ans.0.type" value="list">
+
+<input type="hidden" name="ans.0.length" value="1"><input type="text" name="ans.0.0" value="" size="60"> 
+ 
+</body>

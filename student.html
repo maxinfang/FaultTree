@@ -1,0 +1,112 @@
+
+<html lang="en">
+    <head>  
+        <title>Max Decision tree and input images Demo</title> 
+      
+    <script type="text/javascript" src="raphael.js"></script>  
+    <script src="jquery.js"></script>
+       
+    <script src="jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="jquery.jsPlumb-1.5.0-min.js"></script> 
+    <script type="text/javascript" src="jquery.ui.touch-punch.min.js">       </script>    
+    <script type="text/javascript" src="maxv2.js"></script>
+    <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="drawNode.js"></script>
+    <script type="text/javascript" src="shape.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="jsbind.js"></script>
+    <script type="text/javascript" src="reload.js"></script>
+    <script type="text/javascript" src="connection.js"></script>
+     
+      <style>
+        .body{      }
+   
+        .container {  
+          position:absolute; 
+          width:100px;  
+        }  
+        .droplist{
+        position:relative;
+        z-index:1;
+        width:100px;
+        }
+  .connectorClass{
+        position:absolute; 
+        z-index:-1;
+        } 
+   ._jsPlumb_source_hover{
+          position:relative; 
+          z-index:100;
+        }
+   ._jsPlumb_endpoint_anchor_{
+        position:relative; 
+          z-index:100;
+    }
+  .datatable {  
+    position:relative; 
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px; 
+          z-index:1;
+ 
+}  .box { 
+  position: relative;
+  background: transparent;
+  z-index:50;
+}
+      
+   input[type=text]
+{   display:block;  
+    width:50%;
+    float:right;
+    position:relative;   
+          margin-top:2px;
+  
+
+ 
+}
+     label{
+      display: inline-block; 
+          *display:inline;
+      *zoom:1;  
+      overflow:hidden;
+     
+      width:50%;
+      margin-bottom:8px;
+      position:relative;
+          margin-top:4px;
+     
+       }
+    p{position:relative;
+          color:red;
+          z-index:-1;
+ }
+    #containment_limit{
+          width:99%;
+          height:98%;
+          border-style:solid;
+          border-color:black;
+          border-width:0px;
+          margin-top:0px;
+          margin-bottom:2%;
+          margin-right:0px;
+          margin-left:0px;
+          z-index:1000;
+        }
+        </style> 
+     </head>  
+ <body>   <div id="containment_limit" >
+   <div id='canvasdiv'>    </div>
+   
+   <div class='box' id="hide">
+   <button id=a>add Triangle </button>
+   <button id=c>add Circle</button>
+   <button id=r>add Rect</button>
+   <button id=d>add Diamond</button>
+   <button id=clear>clear</button>
+   </div>
+      
+   <p id='warn'>  </p>
+   </div>
+  </body>
+</html>
