@@ -24,7 +24,7 @@ function addDiamond(dragzone) {
             r : 5
       }); 
      var sourcePoint= {
-        anchor:"Right", 
+        anchor:"Bottom", 
          connectorStyle: {
               
             lineWidth: 2,
@@ -41,7 +41,7 @@ function addDiamond(dragzone) {
         };
          
         var targetPoint= {
-        anchor: "Left",
+        anchor: "Top",
         isSource:false,
         isTarget:true
     };
