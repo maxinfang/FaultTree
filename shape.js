@@ -8,7 +8,7 @@ function addShape(type,dragzone){
   if (type=="T") {addTriangle(dragzone);}
   if (type=="C") {addCircle(dragzone);}
   if (type=="S") {addRect(dragzone);}
-  if (type=="H") {addHexagon(dragzone);}
+  if (type=="H") {addAnd(dragzone);}
   if (type=="D") {addDiamond(dragzone);}
 }
 
@@ -157,6 +157,17 @@ function addTriangle(dragzone) {
     e2= jsPlumb.addEndpoint(currentId, targetPoint); 
         
   }
+
+  function addAnd(dragzone){
+     var paper = new Raphael(
+      $(dragzone).get(0),100, 100);  
+   var and =paper.path("M20,30 Q40,5 60,30 T100,30Z")
+           .attr({
+            fill : Color
+        }); 
+     
+  
+}
 
   function addHexagon(dragzone) {
     var paper = new Raphael(
