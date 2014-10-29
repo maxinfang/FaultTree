@@ -53,10 +53,11 @@ function addDiamond(dragzone) {
  
 function addRect(dragzone) { 
    var paper = new Raphael(
-        $(dragzone).get(0), 100,100); 
+        $(dragzone).get(0), 150,150); 
+    paper.path("M20,150 Q50,5 80,150Z") 
          var rect =paper.rect(0, 0, 98, 98)
            .attr({
-            fill : Color
+           // fill : Color
         }); 
     var sourcePoint= {
         anchor:"Bottom", 
@@ -160,13 +161,12 @@ function addTriangle(dragzone) {
 
   function addAnd(dragzone){
      var paper = new Raphael(
-      $(dragzone).get(0),100, 100);  
-   var and =paper.path("M20,30 Q40,5 60,30 T100,30Z")
+      $(dragzone).get(0),100, 100); 
+     paper.path("M0,60 Q20,5 40,60Z") 
+ //  var and =paper.path("M 57  2 L 43  2 L 37 12 L 44 16 L 50  7 L 52 12 L 49 //13 L 59 13 L 63  5 L 60  6 Z M 50 35 L 38 35 L 31 23 L 34 16 L 31 15 L 40 15 //L 44 23 L 41 22 L 38 27 L 50 27 Z  M 51 31 L 56 25 L 56 27 L 62 27 L 56 16 L //63 12 L 69 23 L 62 35 L 56 35 L 56 38 Z")
            .attr({
             fill : Color
-        }); 
-     
-  
+        });  
 }
 
   function addHexagon(dragzone) {
