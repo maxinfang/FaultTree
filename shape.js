@@ -53,11 +53,14 @@ function addDiamond(dragzone) {
  
 function addRect(dragzone) { 
    var paper = new Raphael(
-        $(dragzone).get(0), 150,150); 
-    paper.path("M20,150 Q50,5 80,150Z") 
+        $(dragzone).get(0), 100,150); 
+   // paper.path("M20,150 Q50,5 80,150Z") ;
+     
+      paper.path("M50,98 L50,115 M30,150 Q50,80 70,150Z").attr({
+            fill : Color }); 
          var rect =paper.rect(0, 0, 98, 98)
            .attr({
-           // fill : Color
+            fill : Color
         }); 
     var sourcePoint= {
         anchor:"Bottom", 

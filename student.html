@@ -26,9 +26,13 @@
           width:100px;  
         }  
         .droplist{
-        position:relative;
-        z-index:1;
-        width:100px;
+        position:absolute;
+           top: 40px;
+    left: 5px;
+        z-index:1000;
+        width:88px;
+         
+          
         }
   .connectorClass{
         position:absolute; 
@@ -43,10 +47,13 @@
           z-index:100;
     }
   .datatable {  
-    position:relative; 
+    position:absolute;
     display: table-cell;
     vertical-align: middle;
+    top: 25px;
+    left: 25px;
     height: 50px; 
+          
           z-index:1;
  
 }  .box { 
@@ -103,7 +110,7 @@
    <button id=c>add Circle</button>
    <button id=r>add Rect</button>
    <button id=d>add Diamond</button>
-      <button id=h>add AND</button>
+      <button id=h>add Or</button>
    <button id=clear>clear</button>
    </div>
       

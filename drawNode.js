@@ -20,8 +20,14 @@ function drawnode(node){
       dragzone= document.createElement('div');
       $(dragzone).uniqueId();
       var currentId=$(dragzone).attr("id");
-      $(newdiv).append(dragzone); 
+       dropL=addDroplist();
+       $(newdiv).append(dropL); 
+      $(newdiv).append(dragzone);  
       addShape(node.type,dragzone); 
+     
+    // $(newdiv).append(dropL);
+  
+   
   /*   
   var dropL;
   var dropLid;
