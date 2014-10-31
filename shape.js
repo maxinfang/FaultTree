@@ -119,7 +119,7 @@ function addTriangle(dragzone) {
         anchor: "Top",
         isSource:false,
         isTarget:true,
-           maxConnections: -1,
+           maxConnections: -1
     };
     var currentId = $(dragzone).attr('id'); 
     e1= jsPlumb.addEndpoint(currentId, sourcePoint);
