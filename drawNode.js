@@ -20,15 +20,15 @@ function drawnode(node){
       dragzone= document.createElement('div');
       $(dragzone).uniqueId();
       var currentId=$(dragzone).attr("id");
-       dropL=addDroplist();
-       $(newdiv).append(dropL); 
+      // dropL=addDroplist();
+      // $(newdiv).append(dropL); 
       $(newdiv).append(dragzone);  
       addShape(node.type,dragzone); 
      
     // $(newdiv).append(dropL);
   
    
-  /*   
+     
   var dropL;
   var dropLid;
   
@@ -51,64 +51,47 @@ function drawnode(node){
     })
   
    
-     if (node.parentID!=""){        
+    // if (node.parentID!=""){        
        $(newdiv).append(dropL.show()); 
        
-     }
+   //  }
   
-     else{ 
+   //  else{ 
        
-       $(newdiv).append(dropL.hide()); 
+     //  $(newdiv).append(dropL.hide()); 
            
-     } 
-  */
+     //} 
+ 
       //datadiv= document.createElement('div');
       //$(datadiv).addClass("datatable");
       //$(newdiv).append(datadiv); 
      // $(datadiv).append(addlabel(dataLabel));
-      var emv;
+ 
+     
   
-  
-  
-  
-  
+  var emv; 
   if(node.emv==""){
      emv=addtext("EMV");}
      else{  
    emv= addtext("EMV",node.emv)}
   
-    // $(datadiv).append(emv); 
+  //  $(datadiv).append(emv); 
       var prob;
       var problabel;
       var probs;
   
-   if (node.parentID!=""){        
-       
-          prob=addtext("Prob",node.prob);
+      prob=addtext("Prob",node.prob);
       problabel=addlabel("Prob");
+      //$(newdiv).append(prob.show());     
         
-       $(prob).show();
-        $(problabel).show();
-        $(probs).show();
-
-     }
-     else{
-         prob=addtext("Prob");
-        problabel=addlabel("Prob");
-         $(prob).hide();
-        $(problabel).hide();
-        $(probs).hide();
-     } 
-  
-  
+      
+     var br = document.createElement('br')  
+    //$(datadiv).append(br);
+    // $(datadiv).append(problabel);
+    //  $(datadiv).append(prob);
+    //  $(datadiv).append(probs);
        
-         var br = document.createElement('br')  
-  //$(datadiv).append(br);
-  //    $(datadiv).append(problabel);
-  //    $(datadiv).append(prob);
-  //    $(datadiv).append(probs);
-       
-  /   $(prob).change(function() {
+     $(prob).change(function() {
            node.prob= $(prob).val();
            updateNode(node,"prob");
          
@@ -117,9 +100,8 @@ function drawnode(node){
            node.emv= $(emv).val();
            updateNode(node,"emv");
          
-});  
-   
-  
+      });  
+    
   
       $(newdiv).dblclick(function() {
       if (confirm('Are you sure you want to delete the node?')) {   
@@ -128,7 +110,7 @@ function drawnode(node){
         deleteNode(node); 
         $(this).empty();  
         sentToparentPage(); 
-      }  
+        }  
       });
   
     
@@ -138,7 +120,7 @@ function drawnode(node){
 }); 
   
       $("#"+containerId).draggable(  
-        {    containment: $("#canvasdiv").parent(),
+         {   containment: $("#canvasdiv").parent(),
              scroll:false,
              handle:  "#"+currentId,
              stop: function(event, ui ){ 

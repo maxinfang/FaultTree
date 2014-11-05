@@ -31,8 +31,8 @@ function Node(id,type,parent,top,left,selectvalue,emv,prob){
        this.parentID =""; 
        this.top ="";
        this.left=""; 
-       this.value="";
-       this.emv="";
+       this.value=""; 
+       this. emv="";//change this to the type? 
        this.prob="" 
      }  
  
@@ -52,8 +52,7 @@ function deserialise(string){
        node.emv=nodeAttribute[5];
        node.prob=nodeAttribute[6]; 
        node.parentID=nodeAttribute[7]; 
-       array.push(node);
-          
+       array.push(node); 
        }  
      return array; 
 }
@@ -86,16 +85,15 @@ function serialise(myNodes){
 
 function generateID(myNodes){
       
-  if (typeof(myNodes) == "undefined" ) {return 1;}
-      
+  if (typeof(myNodes) == "undefined" ) {return 1;} 
       var myNodesArray=myNodes;
-      var max=0;  
-      
+      var max=0;   
       for(n=0; n<myNodesArray.length;n++){ 
          var node= myNodes[n]; 
           node.id >=max;
           max=node.id 
        } 
+  
       var ret= Number(max) +1;
       return ret;
       
@@ -109,23 +107,21 @@ function generateID(myNodes){
        }
        }
 
- function addNewNode(node){
-
+ function addNewNode(node){ 
      myNodes.push(node);
      sentToparentPage();
    }
-function  emptymyNodes(){
 
+
+function  emptymyNodes(){ 
     myNodes=[];
     jsPlumb.reset; 
     sentToparentPage();
    }
 
 
- function updateNode(node,property){
-      
-      var myNodesArray=myNodes;
-      
+ function updateNode(node,property){ 
+      var myNodesArray=myNodes; 
       for(n=0; n<myNodesArray.length;n++){ 
          var n= myNodes[n]; 
         if(  n.id== node.id){
@@ -183,8 +179,7 @@ function sentToparentPage()
        elem[i].value   = answervalue;
     }  
          
-    }
-    
+    } 
    
    console.log("save:"+answervalue);
   }
