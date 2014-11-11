@@ -62,27 +62,32 @@ function drawnode(node){
            
      //} 
  
-      //datadiv= document.createElement('div');
-      //$(datadiv).addClass("datatable");
-      //$(newdiv).append(datadiv); 
-     // $(datadiv).append(addlabel(dataLabel));
- 
+      datadiv= document.createElement('div');
+      $(datadiv).addClass("datatable");
+      $(newdiv).append(datadiv); 
+     
      
   
-  var emv; 
+ /* var emv; 
   if(node.emv==""){
-     emv=addtext("EMV");}
+    emv=addtext("EMV");
+  }
      else{  
-   emv= addtext("EMV",node.emv)}
+  emv= addtext("EMV",node.emv)
+     }
   
-  //  $(datadiv).append(emv); 
+   $(newdiv).append(emv); */
+  
       var prob;
       var problabel;
       var probs;
-  
+   
       prob=addtext("Prob",node.prob);
       problabel=addlabel("Prob");
-      //$(newdiv).append(prob.show());     
+      $(datadiv).append( problabel);  
+      $(datadiv).append( prob);  
+    $(datadiv).append(dropL.show()); 
+        
         
       
      var br = document.createElement('br')  
@@ -96,12 +101,12 @@ function drawnode(node){
            updateNode(node,"prob");
          
 });   
-     $(emv).change(function() {
+  /*   $(emv).change(function() {
            node.emv= $(emv).val();
            updateNode(node,"emv");
          
       });  
-    
+   */ 
   
       $(newdiv).dblclick(function() {
       if (confirm('Are you sure you want to delete the node?')) {   

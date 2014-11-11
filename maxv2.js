@@ -5,7 +5,7 @@
  var array = questionId.split("_");
     
  
-if(array[0] != "question" && array[0] !='"question'){ 
+if(array[0] != "question"){ 
       alert(alert(array[0])); 
       alert ("iframe setting not vailid!");
       
