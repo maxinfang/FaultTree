@@ -7,8 +7,8 @@ if(mode=="submission") { Color= "#0060bf"};
 function addShape(type,dragzone){
   if (type=="T") {addTriangle(dragzone);}
   if (type=="C") {addCircle(dragzone);}
-  if (type=="S") {addRect(dragzone);}
-  if (type=="H") {addAnd(dragzone);}
+  if (type=="A") {addRect(dragzone);}
+  if (type=="O") {addRectwithor(dragzone);}
   if (type=="D") {addDiamond(dragzone);}
 }
 
@@ -16,7 +16,7 @@ function addDiamond(dragzone) {
     var paper = new Raphael(
       $(dragzone).get(0), 100, 100); 
   
-    var diamond= paper.path( "M0 50L 50 100L100 50L50 0Z")
+    var diamond= paper.path( "M0 25L 50 50L100 25L50 0Z")
            .attr({
             fill : Color,
             stroke : "black",
@@ -56,9 +56,10 @@ function addRect(dragzone) {
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
      
-      paper.path("M50,98 L50,115 M30,150 Q50,80 70,150Z").attr({
+      paper.path("M50,40 L50,115 M30,150 Q50,80 70,150Z").attr({
             fill : Color }); 
-         var rect =paper.rect(0, 0, 98, 98)
+   var cp = paper.circle(50, 128, 4).attr("fill", "black");
+         var rect =paper.rect(0, 0, 98, 49)
            .attr({
             fill : Color
         }); 
@@ -88,6 +89,48 @@ function addRect(dragzone) {
     e2= jsPlumb.addEndpoint(currentId, targetPoint);   
   }
 
+function addRectwithor(dragzone) { 
+   var paper = new Raphael(
+        $(dragzone).get(0), 100,150); 
+   // paper.path("M20,150 Q50,5 80,150Z") ;
+     
+      paper.path("M50,40 L50,115 M30,150 Q 50,80 70,150 Q50,125 30,150").attr({
+            fill : Color }); 
+         var cross = paper.path("M50,120 L50,130 M45, 125 L55 125").attr({
+    "stroke": "black",
+    "stroke-width": 3
+});
+        var rect =paper.rect(0, 0, 98, 49)
+           .attr({
+          fill : Color
+        }); 
+  
+  
+    var sourcePoint= {
+        anchor:"Bottom", 
+         connectorStyle: {
+            lineWidth: 2,
+            strokeStyle: '#666'
+        }, 
+        connector:["Flowchart"],
+        maxConnections: -1,
+        /*connectorOverlays: [["Arrow",
+        { width: 15,
+         length: 15}
+        ]], */
+        isSource:true,
+        isTarget:false
+        };
+         
+        var targetPoint= {
+        anchor: "Top",
+        isSource:false,
+        isTarget:true
+    };  
+    var currentId = $(dragzone).attr('id'); 
+    e1= jsPlumb.addEndpoint(currentId, sourcePoint);
+    e2= jsPlumb.addEndpoint(currentId, targetPoint);   
+  }
 
 function addTriangle(dragzone) {
     var paper = new Raphael(
@@ -130,10 +173,9 @@ function addTriangle(dragzone) {
   function addCircle(dragzone) {
     var paper = new Raphael(
     $(dragzone).get(0), 102, 102);   
-    var circle =paper.circle(50, 50)
+    var circle =paper.ellipse(51, 30, 50, 25)
            .attr({
-            fill : Color, 
-            r : 45
+            fill : Color 
         }); 
     var sourcePoint= {
         anchor:"Bottom", 

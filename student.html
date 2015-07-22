@@ -27,8 +27,8 @@
         }  
         .droplist{
         position:relative;
-           top: 40px;
-    left: 5px;
+        
+        left: 1px;
         z-index:1000;
         width:88px;
          
@@ -46,15 +46,20 @@
         position:relative; 
           z-index:100;
     }
+  div.delete{ 
+           position:absolute;
+          left:80px;  
+          z-index:11111111111;
+    
+   }  
   .datatable {  
     position:absolute;
     display: table-cell;
     vertical-align: middle;
-    top: 25px;
-    left: 25px;
-    height: 50px; 
-          
-          z-index:1;
+    top: 53px;
+    left: 8px;
+    height: 10px; 
+    z-index:11111111;
  
 }  .box { 
   position: relative;
@@ -64,26 +69,20 @@
       
    input[type=text]
 {   display:block;  
-    width:50%;
-    float:right;
-    position:relative;   
-          margin-top:2px;
-  
-
- 
+     
+          left:44;
+    position:absolute;   
+    margin-top:2px; 
 }
+   
      label{
-      display: inline-block; 
-          *display:inline;
-      *zoom:1;  
-      overflow:hidden;
-     
-      width:50%;
-      margin-bottom:8px;
-      position:relative;
-          margin-top:4px;
-     
-       }
+     display:block;  
+    width:50%;
+    float:left;
+    position:relative;   
+    margin-top:2px; 
+}
+        
     p{position:relative;
           color:red;
           z-index:-1;
@@ -108,9 +107,10 @@
    <div class='box' id="hide">
     
    <button id=c>add Circle</button>
-   <button id=r>add Rect</button>
+   <button id=r>add Rect with and</button>
+     <button id=h>add Rect with or</button>
    <button id=d>add Diamond</button>
-      <button id=h>add Or</button>
+      
    <button id=clear>clear</button>
    </div>
       

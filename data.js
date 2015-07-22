@@ -34,7 +34,7 @@ function addtext(lable,value){
   $(text).uniqueId();  
   text.type="text";
   $(text).addClass("droplist");
-  text.style.width='30px';
+  text.style.width='40px';
   text.name=lable;    if(typeof(value) != "undefined")
   {
     

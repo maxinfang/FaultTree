@@ -250,7 +250,7 @@ $(document).ready(function()  {
    $("#r").click(function(){ 
          var node= new Node();
          node.id =generateID(myNodes);
-         node.type="S";
+         node.type="A";
          node= drawnode(node);
          addNewNode(node);
   });
@@ -258,7 +258,7 @@ $(document).ready(function()  {
   $("#h").click(function(){ 
          var node= new Node();
          node.id =generateID(myNodes);
-         node.type="H";
+         node.type="O";
          node= drawnode(node);
          addNewNode(node);
   });

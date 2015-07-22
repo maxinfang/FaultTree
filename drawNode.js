@@ -18,11 +18,28 @@ function drawnode(node){
   
       $("#canvasdiv").append(newdiv);
       dragzone= document.createElement('div');
+  
+     deletezone= document.createElement('div'); 
+    var elem = document.createElement("img");
+    elem.setAttribute("src", " icon-error.png");
+    $(elem).uniqueId();
+    $(elem).attr('align', 'right');
+   $(deletezone).addClass("delete");
+    $(deletezone).append(elem); 
+    $(deletezone).addClass("delete");
+  
+  
+  
+  
       $(dragzone).uniqueId();
+      var deleteId  =$(elem).attr("id");
       var currentId=$(dragzone).attr("id");
       // dropL=addDroplist();
-      // $(newdiv).append(dropL); 
-      $(newdiv).append(dragzone);  
+      // $(newdiv).append(dropL);
+ 
+      $(newdiv).append(deletezone);
+     $(newdiv).append(dragzone);  
+      
       addShape(node.type,dragzone); 
      
     // $(newdiv).append(dropL);
@@ -108,7 +125,7 @@ function drawnode(node){
       });  
    */ 
   
-      $(newdiv).dblclick(function() {
+     /* $(newdiv).dblclick(function() {
       if (confirm('Are you sure you want to delete the node?')) {   
         jsPlumb.detachAllConnections(currentId );
         jsPlumb.removeAllEndpoints(currentId); 
@@ -117,7 +134,21 @@ function drawnode(node){
         sentToparentPage(); 
         }  
       });
-  
+  */
+   $("#"+deleteId).click(function() { 
+    if (confirm('Delete this node?')) {   
+      jsPlumb.detachAllConnections(currentId )
+      jsPlumb.removeAllEndpoints(currentId); 
+       
+      $("#"+node.id).empty();  
+      
+       deleteNode(node);
+         $(this).empty();  
+        sentToparentPage(); 
+      
+    }  
+    
+  });
     
       jsPlumb.draggable($("#"+containerId), {
   containment:$("#canvasdiv").parent(),
