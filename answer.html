@@ -20,23 +20,24 @@
       <script type="text/javascript" src="correctAnswer.js"></script>
      
       <style>
-     .box {
-  
-  position: fixed;
-  background: #fee;
-}
-     .container {  
+     .body{      }
+   
+        .container {  
           position:absolute; 
           width:100px;  
         }  
         .droplist{
         position:relative;
-        z-index:1;
-        width:100px;
+        
+        left: 1px;
+        z-index:1000;
+        width:88px;
+         
+          
         }
   .connectorClass{
-        position:absolute; 
-        z-index:1;
+        position:relative; 
+        z-index:-1;
         } 
    ._jsPlumb_source_hover{
           position:relative; 
@@ -44,46 +45,49 @@
         }
    ._jsPlumb_endpoint_anchor_{
         position:relative; 
-          z-index:100;}
-        
+          z-index:100;
+    }
+  div.delete{ 
+           position:absolute;
+          top: -15px;
+          left:80px;  
+          z-index:11111111111;
+    
+   }  
   .datatable {  
-    position:relative; 
+    position:absolute;
     display: table-cell;
     vertical-align: middle;
-    height: 50px; 
-    z-index:1; 
-}  
-         div.delete{ 
-     display:none; 
-   }
-  .box { 
+    top: 53px;
+    left: 8px;
+    height: 10px; 
+    z-index:11111111;
+ 
+}  .box { 
   position: relative;
   background: transparent;
   z-index:50;
 }
+      
    input[type=text]
 {   display:block;  
-    width:50%;
-    float:right;
-    position:relative;   
-    margin-top:2px;
-
- 
+     
+          left:44;
+    position:absolute;   
+    margin-top:2px; 
 }
+   
      label{
-      display: inline-block; 
-      *display:inline;
-      *zoom:1; 
-      overflow:hidden;
-     
-      width:50%;
-      margin-bottom:8px;
-      position:relative;
-          margin-top:4px;
-     
-       }
+     display:block;  
+    width:50%;
+    float:left;
+    position:relative;   
+    margin-top:2px; 
+}
+        
     p{position:relative;
-          color:red
+          color:red;
+          z-index:-1;
  }
     #containment_limit{
           width:99%;
@@ -95,6 +99,7 @@
           margin-bottom:2%;
           margin-right:0px;
           margin-left:0px;
+          z-index:1000;
         }
         </style>
        

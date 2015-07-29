@@ -3,7 +3,7 @@
  var questionId=this.frameElement.attributes.id.value; 
  
  var array = questionId.split("_");
-    console.log(array);
+    
  if(array[0] == "question"){  
     }; 
  
@@ -112,7 +112,7 @@ $(document).ready(function()  {
       for(n=0; n<myNodes.length;n++){ 
        
       var node=myNodes[n];  
-       console.log(node);
+       
       var linkedNode= new NodeClass(node)
       //console.log(linkedNode);
       linkedArray.push(linkedNode);  
@@ -151,7 +151,7 @@ $(document).ready(function()  {
           linkedNode.nextNodes=children; 
         }
       }
-       
+        
          function recursive(node){  
       var currentnode= node;
       var nextnodes= node.nextNodes;
@@ -181,90 +181,25 @@ $(document).ready(function()  {
       node.level=1;
       return node.level;
               
-  }
-setchildren();
+    }
+        setchildren();
+        
         var rootnode = findrootnode();
         var rootnodeid = rootnode.node.id;
-        recursive(rootnode);
-           
-           
-        var deep =rootnode.level
-        
-        for(var n=2; n<=deep ;n++){ 
-              for(var m=0; m<linkedArray2.length;m++){ 
-                var  lnode= linkedArray2[m];
-                if(lnode.level==n){
-                    
-                  if(lnode.node.type=="S"){
-                  
-                    var ch =lnode.nextNodes; 
-                    var maxemv=0;
-                    var   _array = new Array();
-                   
-                   for(var l=0; l<ch.length; l++){
-                    
-                     _array.push(ch[l].node.emv);
-                    
-                    
-                    }
-                      var maxemv=Math.max.apply(Math,_array);
-                    for(var l=0; l<ch.length; l++){
-                
-                      //find the largest emv node;
-                       if(ch[l].node.emv==maxemv)
-                           { ch[l].node.prob=1;}
-                       else{ch[l].node.prob="0";}
-                      }
-                       
-                    
-                    
-                    lnode.node.emv=maxemv;
-                    
-                    
-                  }
-                  if(lnode.node.type=="C"){
-                     var ch =lnode.nextNodes; 
-                     var sum= 0;
-                    for(var l=0; l<ch.length; l++){
-                    
-                      //find the largest emv node;
-                        var nodeemv=Number(ch[l].node.emv);
-                        var  nodeprob=Number(ch[l].node.prob);
-                             
-                        var nodev=  numMulti(nodeemv,nodeprob);
-       
-                        sum =numAdd(sum , nodev);
-                    
-                    }
-                    lnode.node.emv=sum;
-                  
-                  }              }
-                 
-                
-              }
-        }
-           
-           
-           
-        
-        
-      
-        
-    
-        
-      
-       
-     //  recursiveemv(rootnode); 
-    //  recursive(rootnode); 
+        recursive(rootnode);  
+        console.log(linkedArray);  
+        var deep =rootnode.level;
+          console.log(deep); 
+         
         
    for(n=0; n<myNodes.length;n++){ 
          var node= myNodes[n]; 
          drawnode(node);
    }
-     // redraw(history);
+  
         console.log("here");
         
-     // find rootnode and hide the prob;
+    
         $("#"+rootnodeid).children().each(function(no,el){
         if($(el).hasClass("datatable")){
           $(el).children().each(function(n,e){
