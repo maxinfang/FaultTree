@@ -105,10 +105,7 @@ $(document).ready(function()  {
       // find the end of child;
       // calculatNode(myNodes); 
       var linkedArray= new Array(); 
-      var linkedArray2= new Array(); 
-        
-        
-        
+      var linkedArray2= new Array();  
       for(n=0; n<myNodes.length;n++){ 
        
       var node=myNodes[n];  
@@ -152,7 +149,7 @@ $(document).ready(function()  {
         }
       }
         
-         function recursive(node){  
+     function recursive(node){  
       var currentnode= node;
       var nextnodes= node.nextNodes;
       var nodedata= node.node; 
@@ -182,25 +179,53 @@ $(document).ready(function()  {
       return node.level;
               
     }
-        setchildren();
+        setchildren(); 
         
         var rootnode = findrootnode();
         var rootnodeid = rootnode.node.id;
         recursive(rootnode);  
-        console.log(linkedArray);  
+        console.log(linkedArray); 
+        console.log("here"); 
+        console.log(myNodes.length);
+        console.log("here");
         var deep =rootnode.level;
-          console.log(deep); 
+        console.log(deep); 
+        
+        for(var n=2; n<=deep ;n++){ 
+             
+            for(var m=0; m<linkedArray2.length;m++){
+             var  lnode= linkedArray2[m]; 
+                if(lnode.level==n){
+                  
+                   var ch =lnode.nextNodes; 
+                   var _array = new Array();
+                  
+                    var temp=1;
+                    for(var l=0; l<ch.length; l++){ 
+                      temp= numMulti (temp,ch[l].node.prob); 
+                    }
+                  lnode.node.prob=1-temp;
+                  
+                  
+                  
+                }  
+            }
+          
+          
+          
+          
+          
+        }
          
         
-   for(n=0; n<myNodes.length;n++){ 
+        
+        
+       for(n=0; n<myNodes.length;n++){ 
          var node= myNodes[n]; 
          drawnode(node);
-   }
-  
-        console.log("here");
-        
-    
-        $("#"+rootnodeid).children().each(function(no,el){
+       }
+   
+       $("#"+rootnodeid).children().each(function(no,el){
         if($(el).hasClass("datatable")){
           $(el).children().each(function(n,e){
             if ($(e).hasClass("Prob")){ $(e).hide();}
