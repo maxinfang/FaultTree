@@ -47,6 +47,7 @@ function getLabel(){
 function getsubmission(){
     var element= parent.document.getElementById(namespaceforSubmit);
     return element.innerHTML;
+    
  } 
 
 function getCorrectAnswer(){
@@ -120,6 +121,7 @@ $(document).ready(function()  {
         for(var n=0; n<linkedArray.length;n++){
         var  rootnode= linkedArray[n];
         var pid=rootnode.node.parentID;
+          console.log(rootnode);
         if(pid=="") {  
             return rootnode; };
         }

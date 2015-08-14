@@ -1,4 +1,5 @@
 function redraw(history){
+     console.log("here");
   
      myNodes=deserialise(history);
       
@@ -16,7 +17,8 @@ function redraw(history){
     if(mode =="submission"){
 
      
-      console.log(myNodes);
+       console.log(myNodes);
+        console.log("testredraw");
     
        for(n=0; n<myNodes.length;n++){ 
          var node= myNodes[n];

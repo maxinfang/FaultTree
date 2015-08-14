@@ -118,6 +118,7 @@ $(document).ready(function()  {
 
   if(mode=="submission") { 
                           _history= getSubmission();
+    console.log("working submission");
                            
     
     }
