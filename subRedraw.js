@@ -1,5 +1,5 @@
  var myNodes=new Array();
- var mode ="correct";
+ 
  var questionId=this.frameElement.attributes.id.value; 
  
  var array = questionId.split("_");

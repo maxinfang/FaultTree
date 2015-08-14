@@ -1,7 +1,7 @@
 function redraw(history){
   
      myNodes=deserialise(history);
-     console.log(submission);
+      
      if (myNodes == []) return;
        
        if(mode != "submission"){
