@@ -41,6 +41,7 @@ function deserialise(string){
        var stringnode=  string.split('a');
        //console.log(stringnode.length);
        for(i=0;i<stringnode.length-1;i++){
+           if(stringnode[i]==" ") continue;
        var nodeAttribute=stringnode[i].split('b');
        //console.log(nodeAttribute[1]);
        var node = new Node();
