@@ -1,7 +1,8 @@
 function redraw(history){
-     console.log("here");
-  
-     myNodes=deserialise(history);
+    
+     console.log(history);
+  if(history == "No answer") { myNodes = [];}
+  else{ myNodes=deserialise(history);}
       
      if (myNodes == []) return;
        
@@ -14,9 +15,7 @@ function redraw(history){
     if(mode!="submission") {sentToparentPage();}
   
 }
-    if(mode =="submission"){
-
-     
+    if(mode =="submission"){ 
        console.log(myNodes);
         console.log("testredraw");
     

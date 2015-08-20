@@ -184,6 +184,7 @@ $(document).ready(function()  {
         setchildren(); 
         
         var rootnode = findrootnode();
+        console.log(rootnode);
         var rootnodeid = rootnode.node.id;
         recursive(rootnode);  
         console.log(linkedArray); 
@@ -198,16 +199,28 @@ $(document).ready(function()  {
             for(var m=0; m<linkedArray2.length;m++){
              var  lnode= linkedArray2[m]; 
                 if(lnode.level==n){
+                  if(lnode.node.type == "O") {
                   
                    var ch =lnode.nextNodes; 
                    var _array = new Array();
                   
                     var temp=1;
                     for(var l=0; l<ch.length; l++){ 
+                      temp= numMulti (temp,1-ch[l].node.prob); 
+                    }
+                 
+                   lnode.node.prob=1-temp;
+                  }
+                  if(lnode.node.type == "A") {
+                    var ch =lnode.nextNodes; 
+                    var _array = new Array(); 
+                    var temp=1;
+                    for(var l=0; l<ch.length; l++){ 
                       temp= numMulti (temp,ch[l].node.prob); 
                     }
-                  lnode.node.prob=1-temp;
-                  
+                    lnode.node.prob=temp;
+                    
+                  }
                   
                   
                 }  

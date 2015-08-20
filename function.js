@@ -37,11 +37,13 @@ function Node(id,type,parent,top,left,selectvalue,emv,prob){
      }  
  
 function deserialise(string){
+      
        var array= new Array();
+    //if (string ="no answer") return array;
        var stringnode=  string.split('a');
-       //console.log(stringnode.length);
+    //   console.log(stringnode);
        for(i=0;i<stringnode.length-1;i++){
-           if(stringnode[i]==" ") continue;
+     //      if(stringnode[i]==" ") continue;
        var nodeAttribute=stringnode[i].split('b');
        //console.log(nodeAttribute[1]);
        var node = new Node();
@@ -187,7 +189,7 @@ function sentToparentPage()
   
   if(mode =="submission" || mode =="correct"){
   
-    console.log("don't save");
+    console.log(" ");
   
   
   
