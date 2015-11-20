@@ -133,7 +133,7 @@ function  emptymyNodes(){
           if(property=="parentID"){n.parentID=node.parentID;}
           if(property=="emv"){n.emv=node.emv;}
           if(property=="prob"){n.prob=node.prob;}
-          if(property=="value"){n.prob=node.value;}
+          if(property=="value"){n.value=node.value;}
         }
        } 
    if(mode == "student"){ sentToparentPage();}

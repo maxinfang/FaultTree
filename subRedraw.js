@@ -217,6 +217,7 @@ $(document).ready(function()  {
                     var temp=1;
                     for(var l=0; l<ch.length; l++){ 
                       temp= numMulti (temp,ch[l].node.prob); 
+                      console.log("test"+temp);
                     }
                     lnode.node.prob=temp;
                     
