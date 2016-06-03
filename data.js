@@ -4,7 +4,7 @@ function addDroplist(options){
   var select= $(newselect).uniqueId(); 
   selectId=$(newselect).prop("id");
   for(o=0;o<op.length;o++){
-    $(newselect).append('<option value='+o+' style="width:50;">'+op[o]+'</option>');
+    $(newselect).append('<option value='+o+' style="width:100;">'+op[o]+'</option>');
   }  
   
   if (typeof options == 'undefined'){
