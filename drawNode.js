@@ -112,6 +112,20 @@ function drawnode(node){
     // $(datadiv).append(problabel);
     //  $(datadiv).append(prob);
     //  $(datadiv).append(probs);
+         
+         prob.addEventListener("input", function(e) {
+    
+    var num = prob.value; 
+    var message = validateProbability( num);
+    if (message!="true"){
+         alert(message);
+        prob.value= prob.defaultValue;
+         }else{
+        prob.defaultValue= num;
+           
+      }
+    
+  }, false);
        
      $(prob).change(function() {
            node.prob= $(prob).val();

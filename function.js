@@ -219,6 +219,31 @@ function deleteNode(node)
       
 }
 
+function validateProbability(value)
+{
+    var num = value;
+    var regex=/^[+]?[0-9]*\.?[0-9]*$/;
+    var emdashregex=/[－]+/;
+    var commaregex=/[,]+/;
+  
+  message="true";
+  
+  if (!num.match(regex)) { message="Numbers must only contain .1234567890"; 
+                          }
+     
+     
+  if(num.match(emdashregex)){
+         message +="\nHint: Are you using the standard negative sign? ";  
+              } 
+  
+ if(num.match(commaregex)){
+        message +="\nHint: Do not use comma (,) as decimal point? ";  
+  }
+         
+   return message;
+  
+  
+ }
 
 
 
