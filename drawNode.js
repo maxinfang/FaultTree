@@ -37,7 +37,8 @@ function drawnode(node){
       // dropL=addDroplist();
       // $(newdiv).append(dropL);
  
-      $(newdiv).append(deletezone);
+      if(mode =="student") { $(newdiv).append(deletezone); } 
+  
      $(newdiv).append(dragzone);  
       
       addShape(node.type,dragzone); 
