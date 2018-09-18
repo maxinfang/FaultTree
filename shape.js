@@ -1,7 +1,8 @@
 
  
-var Color="#fa0000";
-if(mode=="correct") { Color= "#5cc902"};
+var Color="#fa0000";// if(color =="orange") Color="#ffa500";
+ 
+if(mode=="correct") { Color=   Color="#ffa500";}   //"#5cc902"};
 if(mode=="submission") { Color= "#0060bf"};  
 
 function addShape(type,dragzone){

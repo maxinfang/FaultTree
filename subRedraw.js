@@ -61,6 +61,7 @@ function getCorrectAnswer(){
  var op = getEntry();
  var dataLabel= getLabel();
  var correctAnswer= getCorrectAnswer();
+ var _history= getsubmission();
  
 if(parent.document.getElementById(namespaceforAnswer))
    {
@@ -102,11 +103,18 @@ $(document).ready(function()  {
       }
       else{ 
       //caculate the nodes depending on email;
-      myNodes=deserialise(history); 
+      myNodes=deserialise(history);  
+      myNodes_student=deserialise(_history); 
+        
+       
       // find the end of child;
       // calculatNode(myNodes); 
       var linkedArray= new Array(); 
       var linkedArray2= new Array();  
+        
+       var linkedArray_student= new Array(); 
+      var linkedArray2_student= new Array(); 
+        
       for(n=0; n<myNodes.length;n++){ 
        
       var node=myNodes[n];  
@@ -117,7 +125,19 @@ $(document).ready(function()  {
       linkedArray2.push(linkedNode);
   } 
         
-      function findrootnode(){
+       for(n=0; n<myNodes_student.length;n++){ 
+       
+      var node=myNodes_student[n];  
+       
+      var linkedNode= new NodeClass(node)
+      //console.log(linkedNode);
+      linkedArray_student.push(linkedNode);  
+      linkedArray2_student.push(linkedNode);
+  } 
+        
+        
+        
+      function findrootnode_correct(){
         for(var n=0; n<linkedArray.length;n++){
         var  rootnode= linkedArray[n];
         var pid=rootnode.node.parentID;
@@ -126,7 +146,40 @@ $(document).ready(function()  {
             return rootnode; };
         }
       } 
-     function setchildren(){
+        
+        function findrootnode_student(){
+        for(var n=0; n<linkedArray_student.length;n++){
+        var  rootnode= linkedArray_student[n];
+        var pid=rootnode.node.parentID;
+          console.log(rootnode);
+        if(pid=="") {  
+            return rootnode; };
+        }
+      } 
+        
+     function getAncestors(nodeclass,list){
+       
+            var parentlist= list;
+            console.log (nodeclass.id);
+        var parentnode = nodeclass.prevNode ;
+            console.log(parentnode);
+        if ( parentnode==null) {
+             console.log(parentlist);
+             return parentlist;
+           }
+        else {  
+            console.log(parentnode.id);
+          //parentnode = nodeclass.prevNode();
+            parentlist.push(parentnode.id);
+            getAncestors(parentnode,parentlist); 
+        }
+       
+         return parentlist;
+       
+         
+     
+     }   
+     function setchildren_correct(){
           
         for (j=0;j<linkedArray.length;j++){ 
           
@@ -151,13 +204,38 @@ $(document).ready(function()  {
         }
       }
         
+        
+         function setchildren_student(){
+          
+        for (j=0;j<linkedArray_student.length;j++){ 
+          
+        var linkedNode=linkedArray_student[j];
+           
+           // linkedNode.node.parentID;
+          
+          var children= new Array(); 
+              for(var n=0; n<linkedArray2_student.length;n++){ 
+                var  thisnode= linkedArray2_student[n];  
+                var node = thisnode.node;
+                var pID= thisnode.node.parentID;  
+               if(pID== linkedNode.id){
+                 thisnode.prevNode= linkedNode;
+
+                 children.push(thisnode); 
+                }; 
+              }
+          
+          //console.log(children);
+          linkedNode.nextNodes=children; 
+        }
+      }
+        
+        
      function recursive(node){  
       var currentnode= node;
       var nextnodes= node.nextNodes;
       var nodedata= node.node; 
-      var length= nextnodes.length;
-         
-    
+      var length= nextnodes.length; 
       
       if( length>0) {
       var  prob=0;
@@ -181,12 +259,18 @@ $(document).ready(function()  {
       return node.level;
               
     }
-        setchildren(); 
+        setchildren_correct(); 
+        setchildren_student(); 
         
-        var rootnode = findrootnode();
-        console.log(rootnode);
+        var rootnode = findrootnode_correct();
+        
+        var rootnode_student = findrootnode_student();
+       
         var rootnodeid = rootnode.node.id;
-        recursive(rootnode);  
+        recursive(rootnode); 
+        recursive(rootnode_student);
+        
+        
         console.log(linkedArray); 
         console.log("here"); 
         console.log(myNodes.length);
@@ -225,14 +309,21 @@ $(document).ready(function()  {
                   
                   
                 }  
-            }
-          
-          
-          
-          
+            } 
           
         }
-         
+        
+        
+         for(var x=0; x<linkedArray2.length;x++){
+           
+              var  lnode= linkedArray2[x];  
+               console.log(lnode);
+               var list=[];
+               var test =  getAncestors(lnode,list);
+               console.log( test); 
+           
+          } 
+        
         
         
         
