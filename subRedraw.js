@@ -322,7 +322,7 @@ $(document).ready(function()  {
            for(var x=0; x<linkedArray2_student.length;x++){
            
               var  lnode= linkedArray2_student[x];  
-               console.log(lnode);
+              
                var list=[];
                var idlist= getAncestors(lnode,list);
                
@@ -331,12 +331,12 @@ $(document).ready(function()  {
            
           }
          for(var x=0; x<linkedArray2.length;x++){ 
-           
+            
             var  lnode= linkedArray2[x];  
-                  lnode.node.color="orange";
-           for(var x=0; x<linkedArray2_student.length;x++){
+                 lnode.node.color="orange";
+           for(var y=0; y<linkedArray2_student.length;y++){
              
-            var   lnode_student= linkedArray2_student[x];   
+            var   lnode_student= linkedArray2_student[y];   
                if(lnode_student.node.ancestors==lnode.node.ancestors){
                   lnode.node.color="green";
                   console.log(lnode);

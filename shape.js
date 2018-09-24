@@ -57,7 +57,7 @@ function addDiamond(dragzone,color) {
 function addRect(dragzone,color) { 
     
      if(color == "orange") Color="#ffa500";
-     if(color == "green" ) Color="#ffa500";
+     if(color == "green" ) Color="#fa0000";
    var paper = new Raphael(
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
