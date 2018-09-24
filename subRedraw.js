@@ -330,17 +330,17 @@ $(document).ready(function()  {
                lnode.node.ancestors= idlist;
            
           }
+        
          for(var x=0; x<linkedArray2.length;x++){ 
             
             var  lnode= linkedArray2[x];  
-                 lnode.node.color="orange";
-           for(var y=0; y<linkedArray2_student.length;y++){
-             
-            var   lnode_student= linkedArray2_student[y];   
-               if(lnode_student.node.ancestors==lnode.node.ancestors){
+                 lnode.node.color="red"; 
+           for(var y=0; y<linkedArray2_student.length;y++){ 
+              var lnode_student= linkedArray2_student[y];   
+                if( lnode.node.ancestors.compare(lnode_student.node.ancestors)){
                   lnode.node.color="green";
                   console.log(lnode);
-               }
+                }
             
             }    
            

@@ -24,6 +24,26 @@ if (!Array.prototype.indexOf)
     return -1;
   };
 }
+
+if (!Array.prototype.compare)
+{
+Array.prototype.compare = function(testArr) {
+  //console.log("*****************************************************************");
+ // console.log(this);
+//  console.log(testArr);
+    if (this.length != testArr.length) return false;
+    for (var i = 0; i < testArr.length; i++) {
+        if ((this[i] == "" && testArr[i] == "0") ||
+        (this[i] == "0" && testArr[i] == "")) {
+          // accept empty string = 0
+                continue;
+        }
+        else if (this[i] != testArr[i]) return false;
+    }
+  console.log("found!");
+    return true;
+}
+  }
   
 function Node(id,type,parent,top,left,selectvalue,emv,prob){      
        this.id = "";
