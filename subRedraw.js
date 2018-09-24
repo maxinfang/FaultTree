@@ -336,8 +336,7 @@ $(document).ready(function()  {
                   lnode.node.color="orange";
            for(var x=0; x<linkedArray2_student.length;x++){
              
-            var   lnode_student= linkedArray2_student[x];  
-             
+            var   lnode_student= linkedArray2_student[x];   
                if(lnode_student.node.ancestors==lnode.node.ancestors){
                   lnode.node.color="green";
                   console.log(lnode);
