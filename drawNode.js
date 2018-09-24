@@ -41,7 +41,7 @@ function drawnode(node){
   
      $(newdiv).append(dragzone);  
       
-      addShape(node.type,dragzone); 
+      addShape(node.type,dragzone,node.color); 
      
     // $(newdiv).append(dropL);
   

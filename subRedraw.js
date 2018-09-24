@@ -160,7 +160,7 @@ $(document).ready(function()  {
      function getAncestors(nodeclass,list){
        
             var parentlist= list;
-            console.log (nodeclass.id);
+             
         var parentnode = nodeclass.prevNode ;
             console.log(parentnode);
         if ( parentnode==null) {
@@ -170,7 +170,7 @@ $(document).ready(function()  {
         else {  
             console.log(parentnode.id);
           //parentnode = nodeclass.prevNode();
-            parentlist.push(parentnode.id);
+            parentlist.push(parentnode.node.value);
             getAncestors(parentnode,parentlist); 
         }
        
@@ -268,9 +268,7 @@ $(document).ready(function()  {
        
         var rootnodeid = rootnode.node.id;
         recursive(rootnode); 
-        recursive(rootnode_student);
-        
-        
+        recursive(rootnode_student); 
         console.log(linkedArray); 
         console.log("here"); 
         console.log(myNodes.length);
@@ -303,28 +301,51 @@ $(document).ready(function()  {
                       temp= numMulti (temp,ch[l].node.prob); 
                       console.log("test"+temp);
                     }
-                    lnode.node.prob=temp;
-                    
-                  }
-                  
-                  
+                    lnode.node.prob=temp; 
+                  } 
                 }  
-            } 
-          
-        }
-        
+            }  
+        } 
         
          for(var x=0; x<linkedArray2.length;x++){
            
               var  lnode= linkedArray2[x];  
                console.log(lnode);
                var list=[];
-               var test =  getAncestors(lnode,list);
-               console.log( test); 
+               var idlist= getAncestors(lnode,list);
+               
+               idlist.push(lnode.node.value);
+               lnode.node.ancestors= idlist;
            
-          } 
+          }
         
-        
+           for(var x=0; x<linkedArray2_student.length;x++){
+           
+              var  lnode= linkedArray2_student[x];  
+               console.log(lnode);
+               var list=[];
+               var idlist= getAncestors(lnode,list);
+               
+               idlist.push(lnode.node.value);
+               lnode.node.ancestors= idlist;
+           
+          }
+         for(var x=0; x<linkedArray2.length;x++){ 
+           
+            var  lnode= linkedArray2[x];  
+                  lnode.node.color="orange";
+           for(var x=0; x<linkedArray2_student.length;x++){
+             
+            var   lnode_student= linkedArray2_student[x];  
+             
+               if(lnode_student.node.ancestors==lnode.node.ancestors){
+                  lnode.node.color="green";
+                  console.log(lnode);
+               }
+            
+            }    
+           
+          }
         
         
        for(n=0; n<myNodes.length;n++){ 

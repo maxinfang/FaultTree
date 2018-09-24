@@ -2,18 +2,20 @@
  
 var Color="#fa0000";// if(color =="orange") Color="#ffa500";
  
-if(mode=="correct") { Color=   Color="#ffa500";}   //"#5cc902"};
+if(mode=="correct") {    Color="#ffa500";}   //"#5cc902"};
 if(mode=="submission") { Color= "#0060bf"};  
 
-function addShape(type,dragzone){
-  if (type=="T") {addTriangle(dragzone);}
-  if (type=="C") {addCircle(dragzone);}
-  if (type=="A") {addRect(dragzone);}
-  if (type=="O") {addRectwithor(dragzone);}
-  if (type=="D") {addDiamond(dragzone);}
+function addShape(type,dragzone,color){
+  
+  console.log(color);
+  if (type=="T") {addTriangle(dragzone,color);}
+  if (type=="C") {addCircle(dragzone,color);}
+  if (type=="A") {addRect(dragzone,color);}
+  if (type=="O") {addRectwithor(dragzone,color);}
+  if (type=="D") {addDiamond(dragzone,color);}
 }
 
-function addDiamond(dragzone) {
+function addDiamond(dragzone,color) {
     var paper = new Raphael(
       $(dragzone).get(0), 100, 100); 
   
@@ -52,7 +54,8 @@ function addDiamond(dragzone) {
   
 };
  
-function addRect(dragzone) { 
+function addRect(dragzone,color) { 
+    
    var paper = new Raphael(
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
@@ -90,7 +93,7 @@ function addRect(dragzone) {
     e2= jsPlumb.addEndpoint(currentId, targetPoint);   
   }
 
-function addRectwithor(dragzone) { 
+function addRectwithor(dragzone,color) { 
    var paper = new Raphael(
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
@@ -133,7 +136,7 @@ function addRectwithor(dragzone) {
     e2= jsPlumb.addEndpoint(currentId, targetPoint);   
   }
 
-function addTriangle(dragzone) {
+function addTriangle(dragzone,color) {
     var paper = new Raphael(
       $(dragzone).get(0), 102, 82);  
     var triangle =paper.path( "M0 80L 100 80L50 0Z")
@@ -171,7 +174,7 @@ function addTriangle(dragzone) {
   
 };
 
-  function addCircle(dragzone) {
+  function addCircle(dragzone,color) {
     var paper = new Raphael(
     $(dragzone).get(0), 102, 102);   
     var circle =paper.ellipse(51, 30, 50, 25)
