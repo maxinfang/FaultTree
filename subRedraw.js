@@ -339,7 +339,12 @@ $(document).ready(function()  {
               var lnode_student= linkedArray2_student[y];   
                 if( lnode.node.ancestors.compare(lnode_student.node.ancestors)){
                   lnode.node.color="green";
+                  if(lnode.node.prob==lnode_student.node.prob){
+                     lnode.node.bordercolor='blcak';
+                  }
+                  else{lnode.node.bodercolor='red'}
                   console.log(lnode);
+                   
                 }
             
             }    
@@ -348,7 +353,8 @@ $(document).ready(function()  {
         
         
        for(n=0; n<myNodes.length;n++){ 
-         var node= myNodes[n]; 
+         var node= myNodes[n];
+        console.log(node); 
          drawnode(node);
        }
    

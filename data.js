@@ -33,6 +33,7 @@ function addtext(lable,value){
   
   $(text).uniqueId();  
   text.type="text";
+  //text.style.borderColor = "red";
   $(text).addClass("droplist");
   text.style.width='40px';
   text.name=lable;    if(typeof(value) != "undefined")
@@ -43,4 +44,22 @@ function addtext(lable,value){
   
   return text;
 };
+
+function addtextwithred(lable,value){ 
+  var text= document.createElement('input');
+  text.style.borderColor = "red";
+  $(text).uniqueId();  
+  text.type="text";
+  //text.style.borderColor = "red";
+  $(text).addClass("droplist");
+  text.style.width='40px';
+  text.name=lable;    if(typeof(value) != "undefined")
+  {
+    
+    text.value=value;
+  }
+  
+  return text;
+};
+
 

@@ -99,7 +99,7 @@ function drawnode(node){
       var prob;
       var problabel;
       var probs;
-   
+      console.log(node);
       prob=addtext("Prob",node.prob);
       problabel=addlabel("Prob");
       $(datadiv).append( problabel);  
