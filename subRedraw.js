@@ -168,7 +168,7 @@ $(document).ready(function()  {
              return parentlist;
            }
         else {  
-            console.log(parentnode.id);
+           // console.log(parentnode.id);
           //parentnode = nodeclass.prevNode();
             parentlist.push(parentnode.node.value);
             getAncestors(parentnode,parentlist); 
@@ -179,6 +179,7 @@ $(document).ready(function()  {
          
      
      }   
+        
      function setchildren_correct(){
           
         for (j=0;j<linkedArray.length;j++){ 
@@ -331,18 +332,38 @@ $(document).ready(function()  {
            
           }
         
+       
+        console.log(rootnode_student);
+        
+        
          for(var x=0; x<linkedArray2.length;x++){ 
             
             var  lnode= linkedArray2[x];  
-                 lnode.node.color="red"; 
-           for(var y=0; y<linkedArray2_student.length;y++){ 
-              var lnode_student= linkedArray2_student[y];   
-                if( lnode.node.ancestors.compare(lnode_student.node.ancestors)){
-                  lnode.node.color="green";
+                 lnode.node.color="red";         
+           for(var y=0; y<linkedArray2_student.length;y++){  
+              var lnode_student= linkedArray2_student[y]; 
+           
+                   
+                
+              console.log(lnode.node.ancestors);
+              console.log(lnode_student.node.ancestors);
+              
+                if(
+   lnode.node.ancestors.compare(lnode_student.node.ancestors)){
+                     console.log("student:"); 
+                      console.log(lnode_student.node);
+                      console.log("correct:");
+                      console.log(lnode.node);
+                      lnode.node.color="green";
+                      
                   if(lnode.node.prob==lnode_student.node.prob){
-                     lnode.node.bordercolor='blcak';
+                      lnode.node.bordercolor='black';
+                     
                   }
-                  else{lnode.node.bodercolor='red'}
+                  else{
+                      lnode.node.bordercolor='red' ;
+                    }
+                  
                   console.log(lnode);
                    
                 }

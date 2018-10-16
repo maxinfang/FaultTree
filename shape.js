@@ -7,7 +7,7 @@ if(mode=="submission") { Color= "#0060bf"};
 
 function addShape(type,dragzone,color){
   
-  console.log(color);
+  
   if (type=="T") {addTriangle(dragzone,color);}
   if (type=="C") {addCircle(dragzone,color);}
   if (type=="A") {addRect(dragzone,color);}
@@ -21,7 +21,7 @@ function addDiamond(dragzone,color) {
   
     var diamond= paper.path( "M0 25L 50 50L100 25L50 0Z")
            .attr({
-            fill : Color,
+            fill : color,
             stroke : "black",
             strokeWidth : 0,
             r : 5
@@ -57,12 +57,13 @@ function addDiamond(dragzone,color) {
 function addRect(dragzone,color) { 
     
       if(color==null) color= "#0060bf";
+      
    var paper = new Raphael(
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
      
       paper.path("M50,40 L50,115 M30,150 Q50,80 70,150Z").attr({
-            fill : Color }); 
+            fill : color }); 
    var cp = paper.circle(50, 128, 4).attr("fill", "black");
          var rect =paper.rect(0, 0, 98, 49)
            .attr({
@@ -95,19 +96,22 @@ function addRect(dragzone,color) {
   }
 
 function addRectwithor(dragzone,color) { 
+  
+   if(color==null) color= "#0060bf";
+  
    var paper = new Raphael(
         $(dragzone).get(0), 100,150); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
      
       paper.path("M50,40 L50,115 M30,150 Q 50,80 70,150 Q50,125 30,150").attr({
-            fill : Color }); 
+            fill : color }); 
          var cross = paper.path("M50,120 L50,130 M45, 125 L55 125").attr({
     "stroke": "black",
     "stroke-width": 3
 });
         var rect =paper.rect(0, 0, 98, 49)
            .attr({
-          fill : Color
+          fill : color
         }); 
   
   
@@ -142,7 +146,7 @@ function addTriangle(dragzone,color) {
       $(dragzone).get(0), 102, 82);  
     var triangle =paper.path( "M0 80L 100 80L50 0Z")
            .attr({
-            fill : Color,
+            fill : color,
             stroke : "black",
             strokeWidth : 0,
             r : 5
@@ -180,7 +184,7 @@ function addTriangle(dragzone,color) {
     $(dragzone).get(0), 102, 102);   
     var circle =paper.ellipse(51, 30, 50, 25)
            .attr({
-            fill : Color 
+            fill : color 
         }); 
     var sourcePoint= {
         anchor:"Bottom", 
@@ -215,7 +219,7 @@ function addTriangle(dragzone,color) {
      paper.path("M0,60 Q20,5 40,60Z") 
  //  var and =paper.path("M 57  2 L 43  2 L 37 12 L 44 16 L 50  7 L 52 12 L 49 //13 L 59 13 L 63  5 L 60  6 Z M 50 35 L 38 35 L 31 23 L 34 16 L 31 15 L 40 15 //L 44 23 L 41 22 L 38 27 L 50 27 Z  M 51 31 L 56 25 L 56 27 L 62 27 L 56 16 L //63 12 L 69 23 L 62 35 L 56 35 L 56 38 Z")
            .attr({
-            fill : Color
+            fill : color
         });  
 }
 
@@ -244,7 +248,7 @@ function addTriangle(dragzone,color) {
 }
      var hexagon=paper.path(hpath)
            .attr({
-            fill : Color,
+            fill : color,
             stroke : "black",
             strokeWidth : 0
              

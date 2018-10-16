@@ -7,8 +7,7 @@ function addDroplist(options){
     $(newselect).append('<option value='+o+' style="width:100;">'+op[o]+'</option>');
   }  
   
-  if (typeof options == 'undefined'){
-   
+  if (typeof options == 'undefined'){  
    
     return $(newselect); 
   }

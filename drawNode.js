@@ -100,7 +100,12 @@ function drawnode(node){
       var problabel;
       var probs;
       console.log(node);
-      prob=addtext("Prob",node.prob);
+      if(node.bordercolor =='red'){
+         prob=addtextwithred("Prob",node.prob);
+      }else {
+       prob=addtext("Prob",node.prob);
+      }
+     
       problabel=addlabel("Prob");
       $(datadiv).append( problabel);  
       $(datadiv).append( prob);  
