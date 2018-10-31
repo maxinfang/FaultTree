@@ -72,7 +72,26 @@ Array.prototype.compare = function(testArr) {
     return true;
 }
   }
+  
+  
+  
+
+  
+  
+  
+  
  */ 
+    function checkTolerance(submitvalue,correctvalue,tolerance){
+ 
+    var difference = Math.abs(submitvalue-correctvalue); 
+  console.log(difference);
+       if (difference <= tolerance) {
+     return true;
+    }
+    else false;
+}
+
+  
 function Node(id,type,parent,top,left,selectvalue,emv,prob){      
        this.id = "";
        this.type="";

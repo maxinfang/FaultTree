@@ -9,13 +9,13 @@
   else {dotColor="#456"}
   if(outlinecolor =="outlinered") { strokecolor="red";  }
   else { strokecolor="black";}*/
- strokecolor='black';
+ var strokecolor='black';
 var Color="#fa0000";// if(color =="orange") Color="#ffa500";
  
 if(mode=="correct") {    Color="#ffa500";}   //"#5cc902"};
 if(mode=="submission") { Color= "#0060bf"};  
 
-function addShape(type,dragzone,color,nodeoutline=null){
+function addShape(type,dragzone,color,nodeoutline){
   
    if(color =="green") color="#5cc902";
    if(color =="blue") Color="#0060bf";
@@ -24,8 +24,10 @@ function addShape(type,dragzone,color,nodeoutline=null){
   if(color =="green") Color ="#5cc902";
   if(color =="grey") Color ="#808080";
   
+  console.log(nodeoutline);
   
-  if(nodeoutline!=null){strokecolor="red";  }
+  if(nodeoutline =='red'){strokecolor="red"; }
+  else{strokecolor="black";}
   
   if (type=="T") {addTriangle(dragzone,color);}
   if (type=="C") {addCircle(dragzone,color);}
@@ -88,7 +90,12 @@ function addRect(dragzone,color) {
    var cp = paper.circle(50, 113, 4).attr("fill", "black");
          var rect =paper.rect(0, 0, 98, 49)
            .attr({
-            fill : color
+            fill : color,  
+            stroke : strokecolor,
+            strokeWidth : 2,
+             
+             
+            
             
         }); 
     var sourcePoint= {
@@ -135,7 +142,11 @@ function addRectwithor(dragzone,color) {
 });
         var rect =paper.rect(0, 0, 98, 49)
            .attr({
-          fill : color
+             fill : color,
+            
+            stroke : strokecolor,
+            strokeWidth : 2,
+             
         }); 
   
   
@@ -211,8 +222,8 @@ function addTriangle(dragzone,color) {
     var circle =paper.ellipse(51, 30, 50, 25)
            .attr({
             fill : color ,
-            stroke : "black",
-            strokeWidth : 0
+            stroke :strokecolor,
+            strokeWidth :1
         }); 
     var sourcePoint= {
         anchor:"Bottom", 

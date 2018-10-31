@@ -359,10 +359,10 @@ $(document).ready(function()  {
                   
                   if(lnode.node.type != lnode_student.node.type){
                         lnode.node.color="orange";
-                        lnode.node.outline='red';
+                        lnode.node.outlinecolor='red';
                   }
                   
-                  
+                  console.log( lnode.node);
                       
                   if(lnode.node.prob==lnode_student.node.prob){
                       lnode.node.bordercolor='black';
