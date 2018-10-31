@@ -339,7 +339,7 @@ $(document).ready(function()  {
          for(var x=0; x<linkedArray2.length;x++){ 
             
             var  lnode= linkedArray2[x];  
-                 lnode.node.color="red";         
+                 lnode.node.color="#d9534f";         
            for(var y=0; y<linkedArray2_student.length;y++){  
               var lnode_student= linkedArray2_student[y]; 
            
@@ -355,12 +355,21 @@ $(document).ready(function()  {
                       console.log("correct:");
                       console.log(lnode.node);
                       lnode.node.color="green";
+                  
+                  
+                  if(lnode.node.type != lnode_student.node.type){
+                        lnode.node.color="orange";
+                        lnode.node.outline='red';
+                  }
+                  
+                  
                       
                   if(lnode.node.prob==lnode_student.node.prob){
                       lnode.node.bordercolor='black';
-                     
+                    
                   }
                   else{
+                      lnode.node.color="orange";
                       lnode.node.bordercolor='red' ;
                     }
                   

@@ -1,12 +1,31 @@
-
  
+/*
+  if(color =="blue") Color="#0060bf";
+  if(color =="red") Color="#d9534f";
+  if(color =="orange") Color="#ffa500";
+ 
+  if(color =="grey") Color ="#808080"; //testing color
+  if(dotcolor =="red") {dotColor="red";Color ="#ffa500";}
+  else {dotColor="#456"}
+  if(outlinecolor =="outlinered") { strokecolor="red";  }
+  else { strokecolor="black";}*/
+ strokecolor='black';
 var Color="#fa0000";// if(color =="orange") Color="#ffa500";
  
 if(mode=="correct") {    Color="#ffa500";}   //"#5cc902"};
 if(mode=="submission") { Color= "#0060bf"};  
 
-function addShape(type,dragzone,color){
+function addShape(type,dragzone,color,nodeoutline=null){
   
+   if(color =="green") color="#5cc902";
+   if(color =="blue") Color="#0060bf";
+  if(color =="red") Color="#d9534f";
+  if(color =="orange") Color="#ffa500";
+  if(color =="green") Color ="#5cc902";
+  if(color =="grey") Color ="#808080";
+  
+  
+  if(nodeoutline!=null){strokecolor="red";  }
   
   if (type=="T") {addTriangle(dragzone,color);}
   if (type=="C") {addCircle(dragzone,color);}
@@ -16,6 +35,8 @@ function addShape(type,dragzone,color){
 }
 
 function addDiamond(dragzone,color) {
+  
+     if(color==null) color= "#0060bf";
     var paper = new Raphael(
       $(dragzone).get(0), 100, 100); 
   
@@ -59,15 +80,16 @@ function addRect(dragzone,color) {
       if(color==null) color= "#0060bf";
       
    var paper = new Raphael(
-        $(dragzone).get(0), 100,150); 
+        $(dragzone).get(0), 100,135); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
      
-      paper.path("M50,40 L50,115 M30,150 Q50,80 70,150Z").attr({
+      paper.path("M50,25 L50,100 M30,135 Q50,65 70,135Z").attr({
             fill : color }); 
-   var cp = paper.circle(50, 128, 4).attr("fill", "black");
+   var cp = paper.circle(50, 113, 4).attr("fill", "black");
          var rect =paper.rect(0, 0, 98, 49)
            .attr({
             fill : color
+            
         }); 
     var sourcePoint= {
         anchor:"Bottom", 
@@ -100,12 +122,14 @@ function addRectwithor(dragzone,color) {
    if(color==null) color= "#0060bf";
   
    var paper = new Raphael(
-        $(dragzone).get(0), 100,150); 
+        $(dragzone).get(0), 100,135); 
    // paper.path("M20,150 Q50,5 80,150Z") ;
      
-      paper.path("M50,40 L50,115 M30,150 Q 50,80 70,150 Q50,125 30,150").attr({
-            fill : color }); 
-         var cross = paper.path("M50,120 L50,130 M45, 125 L55 125").attr({
+      paper.path("M50,40 L50,100 M30,135 Q 50,65 70,135 Q50,110 30,135").attr({
+            fill : color,
+            stroke : "black",
+            strokeWidth : 0}); 
+         var cross = paper.path("M50,105 L50,115 M45, 110 L55 110").attr({
     "stroke": "black",
     "stroke-width": 3
 });
@@ -142,6 +166,7 @@ function addRectwithor(dragzone,color) {
   }
 
 function addTriangle(dragzone,color) {
+   if(color==null) color= "#0060bf";
     var paper = new Raphael(
       $(dragzone).get(0), 102, 82);  
     var triangle =paper.path( "M0 80L 100 80L50 0Z")
@@ -180,11 +205,14 @@ function addTriangle(dragzone,color) {
 };
 
   function addCircle(dragzone,color) {
+     if(color==null) color= "#0060bf";
     var paper = new Raphael(
     $(dragzone).get(0), 102, 102);   
     var circle =paper.ellipse(51, 30, 50, 25)
            .attr({
-            fill : color 
+            fill : color ,
+            stroke : "black",
+            strokeWidth : 0
         }); 
     var sourcePoint= {
         anchor:"Bottom", 
@@ -224,6 +252,7 @@ function addTriangle(dragzone,color) {
 }
 
   function addHexagon(dragzone) {
+     if(color==null) color= "#0060bf";
     var paper = new Raphael(
     $(dragzone).get(0), 100, 100);  
     
