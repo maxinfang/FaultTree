@@ -335,7 +335,7 @@ $(document).ready(function()  {
                       temp= numMulti (temp,1-ch[l].node.prob); 
                     }
                      
-                   if  (!checkTolerance( lnode.node.prob,temp ,tolerance_prob) ) { 
+                   if  (!checkTolerance( lnode.node.prob,1-temp ,tolerance_prob) ) { 
                      lnode.node.bordercolor='red' ; 
                    }
                     
@@ -347,13 +347,15 @@ $(document).ready(function()  {
                     var temp=1;
                     for(var l=0; l<ch.length; l++){ 
                       temp= numMulti (temp,ch[l].node.prob); 
-                      console.log("test"+temp);
+                   
                     }
                     
                   //  lnode.node.prob=temp; 
                      
                     if (!checkTolerance( lnode.node.prob,temp ,tolerance_prob) ){ 
                      lnode.node.bordercolor='red' ; 
+                       console.log("+++");
+                      console.log(lnode.node);
                    }
                     
                   } 
@@ -419,7 +421,8 @@ $(document).ready(function()  {
                   }
                   
                   console.log( lnode.node);
-                      
+                   console.log("++");  
+                 console.log(lnode_student.node);  
                   if(lnode_student.node.bordercolor=='red'){
                       lnode.node.color="orange"; 
                       lnode.node.bordercolor='red' ;  
