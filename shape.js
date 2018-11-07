@@ -88,7 +88,7 @@ function addRect(dragzone,color) {
       paper.path("M50,25 L50,100 M30,135 Q50,65 70,135Z").attr({
             fill : color }); 
    var cp = paper.circle(50, 113, 4).attr("fill", "black");
-         var rect =paper.rect(3, 3, 98, 48)
+         var rect =paper.rect(1, 1, 98, 49)
            .attr({
             fill : color,  
             stroke : strokecolor,
