@@ -117,7 +117,8 @@ function deserialise(string){
        //console.log(nodeAttribute[1]);
        var node = new Node();
        node.type= nodeAttribute[0]
-       node.id=nodeAttribute[1];
+       
+       node.id=nodeAttribute[1]+0;
        node.value=nodeAttribute[2];
        node.left =nodeAttribute[3]; 
        node.top =nodeAttribute[4]; 
