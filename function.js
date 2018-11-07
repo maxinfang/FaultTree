@@ -81,7 +81,8 @@ Array.prototype.compare = function(testArr) {
   
   
  */ 
-    function checkTolerance(submitvalue,correctvalue,tolerance){
+  
+function checkTolerance(submitvalue,correctvalue,tolerance){
  
     var difference = Math.abs(submitvalue-correctvalue); 
   console.log(difference);

@@ -11,6 +11,7 @@
  var namespaceforLabel=  array[0]+"_"+array[1]+"_label"; 
  var namespaceforSubmit= array[0]+"_"+array[1]+"_submission"; 
  var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; 
+ var namespacefortoleranceprob = array[0]+"_"+array[1]+"_tolerance_prob"; 
  var op= new Array();
 
  
@@ -58,10 +59,20 @@ function getCorrectAnswer(){
     
  } 
 
+function getToleranceprob(){
+   var element= parent.document.getElementById(namespacefortoleranceprob);
+   
+    if (element == null) {   return 0.01;}
+     
+    return element.innerHTML;
+  
+}
+
  var op = getEntry();
  var dataLabel= getLabel();
  var correctAnswer= getCorrectAnswer();
  var _history= getsubmission();
+var tolerance_prob=getToleranceprob();
  
 if(parent.document.getElementById(namespaceforAnswer))
    {
@@ -308,6 +319,48 @@ $(document).ready(function()  {
             }  
         } 
         
+        
+         for(var n=2; n<=deep ;n++){ 
+             
+            for(var m=0; m<linkedArray2_student.length;m++){
+             var  lnode=linkedArray2_student[m]; 
+                if(lnode.level==n){
+                  if(lnode.node.type == "O") {
+                  
+                   var ch =lnode.nextNodes; 
+                   var _array = new Array();
+                  
+                    var temp=1;
+                    for(var l=0; l<ch.length; l++){ 
+                      temp= numMulti (temp,1-ch[l].node.prob); 
+                    }
+                     
+                   if  (!checkTolerance( lnode.node.prob,temp ,tolerance_prob) ) { 
+                     lnode.node.bordercolor='red' ; 
+                   }
+                    
+                  }
+                  
+                  if(lnode.node.type == "A") {
+                    var ch =lnode.nextNodes; 
+                    var _array = new Array(); 
+                    var temp=1;
+                    for(var l=0; l<ch.length; l++){ 
+                      temp= numMulti (temp,ch[l].node.prob); 
+                      console.log("test"+temp);
+                    }
+                    
+                  //  lnode.node.prob=temp; 
+                     
+                    if (!checkTolerance( lnode.node.prob,temp ,tolerance_prob) ){ 
+                     lnode.node.bordercolor='red' ; 
+                   }
+                    
+                  } 
+                }  
+            }  
+        } 
+        
          for(var x=0; x<linkedArray2.length;x++){
            
               var  lnode= linkedArray2[x];  
@@ -336,6 +389,9 @@ $(document).ready(function()  {
         console.log(rootnode_student);
         
         
+         
+        
+        
          for(var x=0; x<linkedArray2.length;x++){ 
             
             var  lnode= linkedArray2[x];  
@@ -346,7 +402,7 @@ $(document).ready(function()  {
                    
                 
               console.log(lnode.node.ancestors);
-              console.log(lnode_student.node.ancestors);
+              console.log(lnode_student.node);
               
                 if(
    lnode.node.ancestors.compare(lnode_student.node.ancestors)){
@@ -364,14 +420,21 @@ $(document).ready(function()  {
                   
                   console.log( lnode.node);
                       
-                  if(lnode.node.prob==lnode_student.node.prob){
+                  if(lnode_student.node.bordercolor=='red'){
+                      lnode.node.color="orange"; 
+                      lnode.node.bordercolor='red' ;  
+                    }
+                  
+                  else  if(lnode.node.prob==lnode_student.node.prob){
+                    
                       lnode.node.bordercolor='black';
                     
                   }
-                  else{
-                      lnode.node.color="orange";
-                      lnode.node.bordercolor='red' ;
-                    }
+                  else if (lnode.node.type == "C"){
+                    lnode.node.bordercolor='red' ; 
+                  
+                  }
+                   
                   
                   console.log(lnode);
                    
@@ -381,6 +444,8 @@ $(document).ready(function()  {
            
           }
         
+        
+       
         
        for(n=0; n<myNodes.length;n++){ 
          var node= myNodes[n];
