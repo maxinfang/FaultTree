@@ -369,8 +369,14 @@ $(document).ready(function()  {
                console.log(lnode);
                var list=[];
                var idlist= getAncestors(lnode,list);
+           
+           
+             if(lnode.node.value){idlist.push(lnode.node.value);}
+
+               else { idlist.push('0');}            
                
-               idlist.push(lnode.node.value);
+               
+               
                lnode.node.ancestors= idlist;
            
           }
@@ -381,18 +387,18 @@ $(document).ready(function()  {
               
                var list=[];
                var idlist= getAncestors(lnode,list);
+             
+               if(lnode.node.value){idlist.push(lnode.node.value);}
+
+               else { idlist.push('0');}             
                
-               idlist.push(lnode.node.value);
-               lnode.node.ancestors= idlist;
-           
+              
+               lnode.node.ancestors= idlist; 
           }
-        
+         
        
         console.log(rootnode_student);
-        
-        
-         
-        
+          
         
          for(var x=0; x<linkedArray2.length;x++){ 
             
