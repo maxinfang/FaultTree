@@ -57,6 +57,8 @@ function drawnode(node){
   }
   
   else{
+    
+    console.log(node);
     dropL=addDroplist(node.value);
     dropLid=$(dropL).prop('id');
 

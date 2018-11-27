@@ -25,6 +25,7 @@ if(parent.document.getElementById(namespaceforSub))
    }
 else{
     mode="student";
+   console.log("student");
 };
 
 

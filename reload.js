@@ -1,11 +1,76 @@
+ var questionId=this.frameElement.attributes.id.value; 
+ 
+ var array = questionId.split("_");
+    
+ if(array[0] == "question"){  
+    }; 
+ 
  var namespaceforEntry = array[0]+"_"+array[1]+"_entry"; 
  var namespaceforLabel=  array[0]+"_"+array[1]+"_label"; 
  var namespaceforSubmit= array[0]+"_"+array[1]+"_submission"; 
  var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; 
  var namespacefortoleranceprob = array[0]+"_"+array[1]+"_tolerance_prob"; 
  var op= new Array();
- var tolerance_prob =0.01;
 
+ 
+ 
+ function getEntry(){
+   
+    var elements=new Array();  
+    var  seq=1;
+    var  flag =1;
+    
+  while(flag){
+    
+    var  tempname= namespaceforEntry+"_"+seq; 
+    var element=parent.document.getElementById(tempname);
+    if ( typeof element !="undefined"&& element !=null ) { 
+      
+      var bu =element.innerHTML;
+      elements.push( bu);
+      seq++;
+    }else {flag=0;}
+      
+   }
+     return elements;
+   }
+ 
+
+function getLabel(){
+    var element=  parent.document.getElementById(namespaceforLabel);
+  if (element == null) { console.log(questionId); return;}
+    console.log( element.innerHTML);
+    return element.innerHTML;
+ } 
+
+function getsubmission(){
+    var element= parent.document.getElementById(namespaceforSubmit);
+    return element.innerHTML;
+    
+ } 
+
+function getCorrectAnswer(){
+   
+  var el=parent.document.getElementById(namespaceforAnswer).innerHTML; 
+     
+  return el;
+    
+ } 
+
+function getToleranceprob(){
+   var element= parent.document.getElementById(namespacefortoleranceprob);
+   
+    if (element == null) {   return 0.01;}
+     
+    return element.innerHTML;
+  
+}
+
+ var op = getEntry();
+ var dataLabel= getLabel();
+ var correctAnswer= getCorrectAnswer();
+ var _history= getsubmission();
+var tolerance_prob=getToleranceprob();
 
 function redraw(history){
     
