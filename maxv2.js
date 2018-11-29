@@ -75,10 +75,7 @@ function getHistory(){
     }  
          
     }
-  
-    
-  
-  
+   
   
  } 
 

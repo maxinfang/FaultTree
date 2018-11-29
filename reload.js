@@ -92,7 +92,6 @@ function redraw(history){
   
   
   
-  
     if(mode =="submission"){
       
       
@@ -268,22 +267,25 @@ function getCorrectAnswer(){
         
         var rootnode = findrootnode_correct();
         
-        var rootnode_student = findrootnode_student();
+        var rootnode_correct = findrootnode_student();
        
         var rootnodeid = rootnode.node.id;
         recursive(rootnode); 
-        recursive(rootnode_student); 
+        recursive(rootnode_correct); 
         console.log(linkedArray); 
         console.log("here"); 
         console.log(myNodes.length);
         console.log("here");
         var deep =rootnode.level;
+        var deep_correct =rootnode_correct.level;
+        
+        
         console.log(deep); 
         
-        for(var n=2; n<=deep ;n++){ 
+        for(var n=2; n<=deep_correct ;n++){ 
              
-            for(var m=0; m<linkedArray2.length;m++){
-             var  lnode= linkedArray2[m]; 
+            for(var m=0; m<linkedArray2_correct.length;m++){
+             var  lnode= linkedArray2_correct[m]; 
                 if(lnode.level==n){
                   if(lnode.node.type == "O") {
                   
@@ -295,9 +297,7 @@ function getCorrectAnswer(){
                       temp= numMulti (temp,1-ch[l].node.prob); 
                     }
                  
-                    if  (!checkTolerance( lnode.node.prob,1-temp ,tolerance_prob) ) { 
-                     lnode.node.bordercolor='red' ; 
-                   }
+                   lnode.node.prob=1-temp;
                   }
                   if(lnode.node.type == "A") {
                     var ch =lnode.nextNodes; 
@@ -305,7 +305,7 @@ function getCorrectAnswer(){
                     var temp=1;
                     for(var l=0; l<ch.length; l++){ 
                       temp= numMulti (temp,ch[l].node.prob); 
-                      console.log("test"+temp);
+                       
                     }
                     lnode.node.prob=temp; 
                   } 
@@ -314,10 +314,11 @@ function getCorrectAnswer(){
         } 
         
         
+        
          for(var n=2; n<=deep ;n++){ 
              
-            for(var m=0; m<linkedArray2_correct.length;m++){
-             var  lnode=linkedArray2_correct[m]; 
+            for(var m=0; m<linkedArray2.length;m++){
+             var  lnode=linkedArray2[m]; 
                 if(lnode.level==n){
                   if(lnode.node.type == "O") {
                   
@@ -328,7 +329,7 @@ function getCorrectAnswer(){
                     for(var l=0; l<ch.length; l++){ 
                       temp= numMulti (temp,1-ch[l].node.prob); 
                     }
-                     
+                      
                    if  (!checkTolerance( lnode.node.prob,1-temp ,tolerance_prob) ) { 
                      lnode.node.bordercolor='red' ; 
                    }
@@ -391,7 +392,7 @@ function getCorrectAnswer(){
           }
          
        
-        console.log(rootnode_student);
+        console.log(rootnode_correct);
           
         
          for(var x=0; x<linkedArray2.length;x++){ 
@@ -399,36 +400,32 @@ function getCorrectAnswer(){
             var  lnode= linkedArray2[x];  
                  lnode.node.color="#d9534f";         
            for(var y=0; y<linkedArray2_correct.length;y++){  
-              var lnode_student= linkedArray2_correct[y]; 
-           
-                   
+              var lnode_correct= linkedArray2_correct[y];  
                 
               console.log(lnode.node.ancestors);
-              console.log(lnode_student.node);
+              console.log(lnode_correct.node);
               
                 if(
-   lnode.node.ancestors.compare(lnode_student.node.ancestors)){
+   lnode.node.ancestors.compare(lnode_correct.node.ancestors)){
                      console.log("student:"); 
-                      console.log(lnode_student.node);
+                      console.log(lnode_correct.node);
                       console.log("correct:");
                       console.log(lnode.node);
                       lnode.node.color="green";
                   
                   
-                  if(lnode.node.type != lnode_student.node.type){
+                  if(lnode.node.type != lnode_correct.node.type){
                         lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
                   }
                   
-                  console.log( lnode.node);
-                   console.log("++");  
-                 console.log(lnode_student.node);  
-                  if(lnode_student.node.bordercolor=='red'){
+                 
+                  if(lnode_correct.node.bordercolor=='red'){
                       lnode.node.color="orange"; 
                       lnode.node.bordercolor='red' ;  
                     }
                   
-                  else  if(lnode.node.prob==lnode_student.node.prob){
+                  else  if(lnode.node.prob==lnode_correct.node.prob){
                     
                       lnode.node.bordercolor='black';
                     

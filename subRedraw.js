@@ -286,6 +286,7 @@ $(document).ready(function()  {
         console.log(myNodes.length);
         console.log("here");
         var deep =rootnode.level;
+        var deep_student=rootnode_student.level;
         console.log(deep); 
         
         for(var n=2; n<=deep ;n++){ 
@@ -320,7 +321,7 @@ $(document).ready(function()  {
         } 
         
         
-         for(var n=2; n<=deep ;n++){ 
+         for(var n=2; n<=deep_student ;n++){ 
              
             for(var m=0; m<linkedArray2_student.length;m++){
              var  lnode=linkedArray2_student[m]; 
