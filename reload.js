@@ -79,17 +79,22 @@ function redraw(history){
        
        
      if(mode != "submission"){
+        myNodes=deserialise(history);
     for(n=0; n<myNodes.length;n++){ 
-      myNodes=deserialise(history);
+     
         var node= myNodes[n];
        console.log(node);
          drawnode(node);
        } 
        
        
-    if(mode!="submission") {
+     
       
-      sentToparentPage();}
+      sentToparentPage();
+      
+      console.log('here');
+    
+     
   
 }
   
