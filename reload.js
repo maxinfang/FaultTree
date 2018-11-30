@@ -68,10 +68,7 @@ function getToleranceprob(){
 
  var op = getEntry();
  var dataLabel= getLabel();
- var correctAnswer= getCorrectAnswer();
- var _history= getsubmission();
-var tolerance_prob=getToleranceprob();
-
+ 
 function redraw(history){
     
      console.log(history);
@@ -94,7 +91,10 @@ function redraw(history){
   
     if(mode =="submission"){
       
-      
+      var correctAnswer= getCorrectAnswer();
+ var _history= getsubmission();
+var tolerance_prob=getToleranceprob();
+
       
 function getCorrectAnswer(){
    
