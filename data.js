@@ -63,7 +63,7 @@ function addtextwithred(lable,value){
  
 function addtextwithblue(lable,value){ 
   var text= document.createElement('input');
-  text.style.borderColor = "#7e9fc2";
+  text.style.borderColor = "#102bde";
   $(text).uniqueId();  
   text.type="text";
   //text.style.borderColor = "red";
