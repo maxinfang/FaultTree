@@ -330,8 +330,12 @@ function getCorrectAnswer(){
                       temp= numMulti (temp,1-ch[l].node.prob); 
                     }
                       
-                   if  (!checkTolerance( lnode.node.prob,1-temp ,tolerance_prob) ) { 
-                     lnode.node.bordercolor='red' ; 
+                   if  (!checkTolerance( lnode.node.prob,1-temp ,tolerance_prob) ) {                   
+                      
+                      
+                     lnode.node.bordercolor='red' ;
+                    
+                     
                    }
                     
                   }
@@ -420,9 +424,12 @@ function getCorrectAnswer(){
                   }
                   
                  
-                  if(lnode_correct.node.bordercolor=='red'){
+                  if(lnode.node.bordercolor=='red'){
                       lnode.node.color="orange"; 
-                      lnode.node.bordercolor='red' ;  
+                      lnode.node.bordercolor='blue' ; 
+                      
+                   
+                       
                     }
                   
                   else  if(lnode.node.prob==lnode_correct.node.prob){

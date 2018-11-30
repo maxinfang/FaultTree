@@ -104,6 +104,8 @@ function drawnode(node){
       console.log(node);
       if(node.bordercolor =='red'){
          prob=addtextwithred("Prob",node.prob);
+      }else   if(node.bordercolor =='blue'){
+         prob=addtextwithblue("Prob",node.prob);
       }else {
        prob=addtext("Prob",node.prob);
       }

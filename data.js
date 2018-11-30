@@ -60,5 +60,21 @@ function addtextwithred(lable,value){
   
   return text;
 };
-
-
+ 
+function addtextwithblue(lable,value){ 
+  var text= document.createElement('input');
+  text.style.borderColor = "#7e9fc2";
+  $(text).uniqueId();  
+  text.type="text";
+  //text.style.borderColor = "red";
+  $(text).addClass("droplist");
+  text.style.width='40px';
+  text.name=lable;    if(typeof(value) != "undefined")
+  {
+    
+    text.value=value;
+  }
+  
+  return text;
+};
+ 

@@ -27,6 +27,7 @@ function addShape(type,dragzone,color,nodeoutline){
   console.log(nodeoutline);
   
   if(nodeoutline =='red'){strokecolor="red"; }
+  if(nodeoutline =='blue'){strokecolor="#7e9fc2"; }
   else{strokecolor="black";}
   
   if (type=="T") {addTriangle(dragzone,color);}
