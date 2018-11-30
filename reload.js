@@ -80,6 +80,8 @@ function redraw(history){
        
      if(mode != "submission"){
         myNodes=deserialise(history);
+       
+       
     for(n=0; n<myNodes.length;n++){ 
      
         var node= myNodes[n];
@@ -437,7 +439,9 @@ function getCorrectAnswer(){
                  
                   if(lnode.node.bordercolor=='red'){
                       lnode.node.color="orange"; 
-                      lnode.node.bordercolor='blue' ; 
+                    
+                   if (checkTolerance( lnode.node.prob,lnode_correct.node.prob,tolerance_prob) ){ 
+                      lnode.node.bordercolor='blue' ; }
                       
                    
                        
