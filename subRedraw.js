@@ -419,15 +419,22 @@ $(document).ready(function()  {
                       console.log(lnode_student.node);
                       console.log("correct:");
                       console.log(lnode.node);
-                      lnode.node.color="green";
-                  
+                      lnode.node.color="green";     
                   
                   if(lnode.node.type != lnode_student.node.type){
-                    if(lnode.node.type=="C" && lnode_studentt.node.type=="D") continue;
-                          if(lnode.node.type=="D" && lnode_student.node.type=="C") continue;
-                        lnode.node.color="orange";
+                       if(!(lnode.node.type=="C" && lnode_student.node.type=="D") || (lnode.node.type=="D" && lnode_student.node.type=="C") ){
+                         
+                          lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
-                  }
+                       }
+                    
+                    
+                    }
+                    
+                   
+                       
+                       
+                  
                   
                   console.log( lnode.node);
                    console.log("++");  
