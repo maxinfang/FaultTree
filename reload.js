@@ -71,7 +71,7 @@ function getToleranceprob(){
  
 function redraw(history){
     
-     console.log(history);
+ 
   if(history == "No answer") { myNodes = [];}
   else{ myNodes=deserialise(history);}
       
@@ -94,7 +94,7 @@ function redraw(history){
       
       sentToparentPage();
       
-      console.log('here');
+     
     
      
   
@@ -477,7 +477,7 @@ function getCorrectAnswer(){
 
              }
     
-       
+         sentToparentPage();
 
       }
 }
