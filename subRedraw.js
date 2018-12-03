@@ -423,6 +423,8 @@ $(document).ready(function()  {
                   
                   
                   if(lnode.node.type != lnode_student.node.type){
+                    if(lnode.node.type=="C" && lnode_studentt.node.type=="D") continue;
+                          if(lnode.node.type=="D" && lnode_student.node.type=="C") continue;
                         lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
                   }

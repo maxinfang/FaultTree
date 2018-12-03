@@ -432,6 +432,8 @@ function getCorrectAnswer(){
                   
                   
                   if(lnode.node.type != lnode_correct.node.type){
+                    if(lnode.node.type=="C" && lnode_correct.node.type=="D") continue;
+                          if(lnode.node.type=="D" && lnode_correct.node.type=="C") continue;
                         lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
                   }
