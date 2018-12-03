@@ -432,7 +432,7 @@ function getCorrectAnswer(){
                   
                   
                   if(lnode.node.type != lnode_correct.node.type){
-                    if(!(lnode.node.type=="C" && lnode_correct.node.type=="D") || (lnode.node.type=="D" && lnode_correct.node.type=="C") ){
+                    if(!((lnode.node.type=="C" && lnode_correct.node.type=="D") || (lnode.node.type=="D" && lnode_correct.node.type=="C")) ){
                         lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
                   }

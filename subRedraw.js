@@ -422,7 +422,7 @@ $(document).ready(function()  {
                       lnode.node.color="green";     
                   
                   if(lnode.node.type != lnode_student.node.type){
-                       if(!(lnode.node.type=="C" && lnode_student.node.type=="D") || (lnode.node.type=="D" && lnode_student.node.type=="C") ){
+                       if(!((lnode.node.type=="C" && lnode_student.node.type=="D") || (lnode.node.type=="D" && lnode_student.node.type=="C") )){
                          
                           lnode.node.color="orange";
                         lnode.node.outlinecolor='red';
