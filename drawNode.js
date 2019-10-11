@@ -86,6 +86,7 @@ function drawnode(node){
       $(datadiv).addClass("datatable");
       $(newdiv).append(datadiv); 
      
+     labelinput= document.createElement('div');
      
   
  /* var emv; 
@@ -111,8 +112,9 @@ function drawnode(node){
       }
      
       problabel=addlabel("Prob");
-      $(datadiv).append( problabel);  
-      $(datadiv).append( prob);  
+      $(labelinput).append( problabel);  
+      $( labelinput).append( prob);
+     $(datadiv).append(labelinput); 
     $(datadiv).append(dropL.show()); 
         
         
