@@ -12,6 +12,7 @@
  var namespaceforSubmit= array[0]+"_"+array[1]+"_submission"; 
  var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; 
  var namespacefortoleranceprob = array[0]+"_"+array[1]+"_tolerance_prob"; 
+ var namespaceforInput = "input_"+array[1]; 
  var op= new Array();
 
  
@@ -46,8 +47,8 @@ function getLabel(){
  } 
 
 function getsubmission(){
-    var element= parent.document.getElementById(namespaceforSubmit);
-    return element.innerHTML;
+  parentintputbox=$("input[name*='" + namespaceforInput + "']", window.parent.document);
+  return parentintputbox[0].value;
     
  } 
 

@@ -16,6 +16,7 @@ if(array[0] != "question"){
  var namespaceforSub = array[0]+"_"+array[1]+"_submission";
  var namespaceforEntry = array[0]+"_"+array[1]+"_entry"; 
  var namespaceforLabel= array[0]+"_"+array[1]+"_label"; 
+ var namespaceforInput = "input_"+array[1]; 
  var op= new Array();
  
 console.log(namespaceforSub);
@@ -82,11 +83,10 @@ function getHistory(){
 
 
 function getSubmission(){
-var element=parent.document.getElementById(namespaceforSub);
-   
-  //console.log(element.innerHTML);
-  return element.innerHTML;
-  }
+  console.log("namespaceforInput: " + namespaceforInput);   
+  parentintputbox=$("input[name*='" + namespaceforInput + "']", window.parent.document);
+  return parentintputbox[0].value;
+}
 
  var op = getEntry();
  console.log(op);
@@ -122,7 +122,7 @@ $(document).ready(function()  {
     }
   
   
-  if(mode=="student"){_history=getHistory();
+  if(mode=="student"){_history=getSubmission(); //getHistory();
                       console.log("studentpage:"+_history);}
   
   if(_history == "" ){ 
